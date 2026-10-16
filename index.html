@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<title>Annual Action Plan wireframe | Cipla Foundation Grant Management System</title>
+<style>
+:root{
+  --bg:#FFFFFF; --surface:#F7F7F8; --ink:#35393b; --ink-2:#55595F; --ink-3:#8A8F98; --line:#E4E6EA;
+  --accent:#005da0; --accent-soft:#ccdfed; --hover:#eaf3fb; --acqua:#00b9ca;
+  --good:#65bc47; --good-ink:#2f6b17; --good-soft:#eaf6e5; --warn:#fbb040; --warn-ink:#7a4d00; --warn-soft:#fff8e7; --bad:#da2128; --bad-soft:#fbe8e9;
+  --sans:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 var(--sans);color-scheme:light}
+.top{background:var(--accent);color:#fff;height:52px;display:flex;align-items:center;padding:0 24px;gap:16px}
+.top img{height:30px}
+.top .t{font-weight:500;font-size:15px;border-left:1px solid rgba(255,255,255,.4);padding-left:16px}
+.top .u{margin-left:auto;font-size:12px;opacity:.9}
+.app{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:calc(100vh - 52px - 40px)}
+nav{background:var(--surface);border-right:1px solid var(--line);padding:20px 12px;display:flex;flex-direction:column;gap:4px}
+nav .grp{font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em;margin:12px 10px 4px}
+nav .dim{padding:7px 10px;color:var(--ink-3);font-size:13px}
+nav a{display:block;padding:8px 10px;border-radius:6px;color:var(--ink-2);text-decoration:none;font-size:13px;border-left:3px solid transparent}
+nav a:hover{background:var(--hover)}
+nav a.active{background:var(--accent-soft);color:var(--accent);font-weight:600;border-left-color:var(--accent)}
+main{padding:24px 32px 32px;min-width:0}
+section[data-view]{display:none}
+section[data-view].active{display:block}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:var(--ink-3);margin:0 0 16px;font-size:13px}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 14px}
+select,.btn{font:inherit;font-size:13px;padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+.btn{cursor:pointer}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:disabled{background:#f1f2f4;color:var(--ink-3);border-color:var(--line);cursor:not-allowed}
+.btn.pri:disabled{background:#f1f2f4;color:var(--ink-3)}
+.sp{margin-left:auto}
+.pill{display:inline-block;padding:1px 10px;border-radius:999px;font-size:12px;font-weight:600}
+.pill.Draft{background:var(--warn-soft);color:var(--warn-ink)}
+.pill.Submitted{background:var(--accent-soft);color:var(--accent)}
+.pill.Approved{background:var(--good-soft);color:var(--good-ink)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em;background:var(--surface);white-space:nowrap}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.click{cursor:pointer}
+tr.click:hover td{background:var(--hover)}
+tr.tot td{font-weight:600;background:var(--surface);border-top:2px solid var(--line)}
+.chip{display:inline-block;background:var(--hover);color:var(--accent);border-radius:4px;padding:0 7px;font-size:12px;margin:1px 2px 1px 0;white-space:nowrap}
+.gaf{display:inline-block;border:1px solid var(--accent-soft);color:var(--accent);border-radius:4px;padding:0 7px;font-size:12px;margin:1px 2px 1px 0;white-space:nowrap}
+input.amt{font:inherit;font-size:13px;width:120px;text-align:right;padding:4px 8px;border:1px solid var(--line);border-radius:4px}
+input.amt:disabled{background:transparent;border-color:transparent}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 14px}
+.card{border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.card .k{font-size:11px;color:var(--ink-3);margin:0;text-transform:uppercase;letter-spacing:.04em}
+.card .v{font-size:19px;font-weight:600;margin:0}
+.two{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:start}
+.panel{border:1px solid var(--line);border-radius:8px;padding:14px 16px}
+.panel h3{margin:0 0 10px;font-size:14px}
+.step{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.step:last-of-type{border-bottom:0}
+.dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff}
+.step.done .dot{background:var(--good);border-color:var(--good)}
+.step.cur .dot{border-color:var(--accent)}
+.step small{display:block;color:var(--ink-3);font-size:12px}
+.hint{background:var(--hover);border-left:3px solid var(--accent);padding:8px 12px;border-radius:0 6px 6px 0;font-size:12px;color:var(--ink-2);margin:0 0 14px}
+.legend{display:flex;gap:16px;font-size:12px;color:var(--ink-2);margin:0 0 10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px}
+.bars{min-width:240px}
+.b{height:8px;border-radius:2px;margin:2px 0;min-width:1px}
+.b.p{background:var(--accent-soft)} .b.c{background:var(--acqua)} .b.u{background:var(--accent)}
+.wm{position:fixed;right:16px;bottom:48px;font-size:12px;color:var(--ink-3);border:1px dashed var(--line);background:#fff;padding:2px 10px;border-radius:4px}
+.foot{height:40px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink-3);border-top:1px solid var(--line)}
+.ph{background:var(--warn-soft);border-radius:3px;padding:0 4px}
+</style>
+</head>
+<body>
+<div class="top"><img alt="Cipla Foundation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASgAAABHCAQAAAAe2xKpAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAd0SU1FB+oKEAMkJzcGN+4AAAI7elRYdFJhdyBwcm9maWxlIHR5cGUgeG1wAAA4jZVVWbLcIAz85xQ5AlZrMcfxDOYvVfnM8dPCb/Z5S+wqzCKkVqvB5e/vP+VXPhGt4IwRa1RfHH5yC5Xq4ubhzXd0kX2cTqchwvnmmjMWMO2o2qMqaLt6K7rGFtxoiE13U+eXDgFuEsHALhXnWLHF6tzoPYP5IjXHfvY9kGslIxCN+kgc2I6Fq/lEcnPDuVPu0OsOqbZqt1okwY2YUzDZ4dKJZ4GCLhBonFvgqGgQqJw5KxwtCBn8ZrsARfqc3Ng6W6Yk9emVj/SEKGhjoqr+lJqUuZjpraF8KzamM2I+sgetZJ+Ij8gt34lE2ArbfgQgokCwPslIrEyLEXL9EQUhsFQshHibTDUyRIvLui+FhI0gsYnqIPa+FknwK94ZbL+ViH0UdjtTWYmnJnhSWy+1enapner5xG159PveLR32N84RaindyXH5HvR75ynuIF+0GemuBCZHwg12+E+qj9jpXpNgoxPN2lkGGH5+EWUlIhqkEWavpkCpxSqrzdOWxlQCpN3cT642zVojq+2TbNOms2aHEZNp83BuSr3CUjcqPIIEmnKd8l3UKEphdoY1VxWFA+UgjwA73KwvkTMBhOX5S729BE5VaXmJjK8jvwuc4i15RTxEt6leZ3QO2M+a1btSb/7AzYWa8i039WcIyxM395F/xM0lcLlGXv6fG/m4PynPj2vkk9N9M7u/ia6zD9dvSdKOpTc/AUtBznTkuL/LPyeZa9uP4Nh7AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDI2LTEwLTEzVDE5OjE0OjM3KzAwOjAwLLPVzAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyNi0xMC0xM1QxOToxNDozNyswMDowMF3ubXAAAAAodEVYdGRhdGU6dGltZXN0YW1wADIwMjYtMTAtMTZUMDM6MzY6MzkrMDA6MDDbVARIAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAEc1JREFUeNrtnWeAFUW2x39zJ5CDCKwwgmQEFBCeSJawKg8W4REFF0kKK65hWZK7ArLw9METM7AqQQFZcUAQBSNpAVkWkVGCSM4wA0wgDDAM1H6YO5eq7uq+3ff2ZYL8+8utU+l03+rqU6fOORUlADoxgKLkJjKYwwpXNVrSiMaUBeAoifzCBi5blq5La64GUjHs4duwee5GeanNaBL5141+bHkQAtFHXBG5j0zRT+DoKiIGiM/FRUP9LLFaDBflLeo8Zyi93GFfdtd+Q5szPGgz318+/psFxOT2sAZimUstB+WGsZM5dKKwgR5NG6ayg4kU0dS6akhf8YBj43zoRZv5Hj6G5TYLEgYFya/JSqZRxaZEWV4gkWYmeiQGVKYhnRXx55MP4NO+z7mFsra5bfmedg5aqcV3pqFZzJC+JbdvtaAixkaQvfGw46Ulq1y0NIvLfCilj7CLa4FUNNty+1YLKvKC9OQEFVjussZ8dpAYSH3EQkQg5ZMG1014Cl9uM+AQn1DSdZ1lxEopIf12Npx8+eZ1y0PIH49sKE0t8y6Z1ns5qMQ4xvp/N+JhLgZyirOFpQDU4GlDrRnsoiJDaElVYjhDImtZwtmQeS9Fe9pQhfKc5ACfsQoYQj2lzFXGcy53Hq3nEMtzWwElYZpWt1FInNWWnid6intFFdFMDBCfa0tcFLf42xhjyPmnn97RVKeD6CnSDbTjYrwobOLrR0OpV00lbhMvixOGUqtFZbHC1GvF3NYfeXV5NaDORXBADdKUPCyaG0p1EMmacuP8uU8Z6Iv99PsN9EyxxYK3naKpywE1WKRoWzot9ph6LR/qH5jXLi9kqCM8QXUGcSRCk+hgE+UUTfjOQPuS+0g1lRxDieyJ2EC3kqJiaWSRU4eN9HDB9VRmWignbqVGhJ5UHkC4A+oyf6MOM0lmDnWZZFL2hY94jfzUjZOakgfoznGSSZKuTG73kJcER3owgPEM9/xJ5AuEJ5TPZzz7A6nzjOUDxvN7Tzm81zToV7LeouxqahErzT5R+DjvKTdLqEx60FLNedHTXvMRQp+hdtKFftJwysZe+tGVXR5yWMdEecem9AXSOBu40kn1eIetJC85KPW+p33mK4Q6oF6lHsss8j6lHm96xmG8ibIl8o+FE6xgvXZ37kluC1L3UWpqqKfYyJ4bwHkuI5QBdZD2/Nm2xDWepT37POGwjCGdzumIP5XnqE4nWlGL2aa8KB4LUvsJEyWDP1KV5tSitWkxUcDgfkB9TENHu2qraMzCCHBc2FKR6RUe5g2/EvQAg5lqyu9kW/sW0yIig2ZM4wIA62jBugjzn6twO6BeoLcDoTQb6TzCuLA5PGVIF6J2RJ/IF3ympEdwwFCiDsVt6t9NIQPlr/ykpB+NwFo4z8DdgOrF/7psfyI9w9yINX84e9qWL0xs4IqjkOtXZp6J8g9Duhi32tQ3qikuMd9AOVKQP3vOH3cG7UkIoYdFPBAWh1tNlCcobVH2Tnaxl92Baw9HuNNlf2kmSoohLUxqUhm/MaRTNerWE2E9kTwN5wOqoyt7JBmr+G0YHG4yCeGFLQf2ImoTT5XAVZlyrkV4s5rivwzpK1yyqW/MK0clU5nIfrRzFU4HVHfWhtHLSv4n5LqZLDHRfkuCyUunDF8a9vAB5pDssr8hhnQFuhooybZt/mJIx/CMgdLYcnunAMDZgBrNJ2H2s5QxIdd9XUPrwU8MoZw/VYZhbOMhTblXXPdWmwVSqijLTavKH2zrbzHNUX+im5QqrbRf4OBkQC1iigc9TWZRiDV3amtW5x0OsYXV/JuDTKOipswMdobQXx820ovKVGMwW7nHlP+xbe10jX/hYt6gLsWoxGC2OvLtyb8Iar5yVMR5ZNoQI46FZL6CKC8yQzCGSRZFAi0MM+QlWJivXMdFkaWlnxExQcxX2lu0eMjkS/irNF/p6ZnWJIteIdZMpl8ItXpJNpruUZhoLX1EUHeplWzQ0itHXCWbBxBsQL3JRg9728BbIdZc6Hr/fgRrPOQ8B2uY46BUsM2ZAgz7AXWEZz3u71kOh1hzQsA+3AkmabZMwsdWOjsqtz/kuTjfw35ADfS8PxFGm5MY4MiU/wpDXQ0+GXZa/fW0dGxdlaDZIv5VwG5ALWVlBHpcpdErOcUHNAi6VlzPvbxrohqlFyunrKu8ynZtzmRakaFQjAa+qnfyTNoY9vCuPwGjGBFLgYH1gMpiaIT6fNIUacA5DtCTNszVbGfANb6hC634UZOXohgGJ1nav8cynwZ8oPgwn2IWjTR6tL2GNo1myWtpQH++UxY1GbxEe03v+cU/MiiixHI6anNeZELEep1gYYUwnacctlCSB6hDPW6jFNdIYi/bWWNjwOYz/GXCP6jvN4nuvfkYqMRDVOYiSexls8VqMZooJX3N4oN5B02pxC1c5DBfcxJoSiWpzRiu8G2eCgkQDiz0UKc90z7pNVKnXemhIneZ9VDdc1uTk78v/VR7jRERtdnJYuTN6AIFE/oBlRZxM/s5js30biJfQT+gSjMgwv0OpFRu37oFosJv4tcMnwX1FeIi2GsM/59H1jXFHFBuwgWsHD1v5S8RdFYca2tEeyOxl5kApJNOND5i2ZzbLOVvWKsNrhGvdfgOH+U5brHx6lxtcBN5FD6bnBkR6nO6xXC6icggmr68ydAQQraFALvYBl1pH4HNl3Z0d1V+FG0dlJqQD4POxzEzYHMKY/k+jLbGS96AbykmfqX5mnsBeIG27I34Xdka2B32XPEVJQ7Z9KdTbH7jyJiuT24r9EK4iih30C2stjZJLY1SchZKOatyS7GZg0q84fH4fYPKLmskOSp1wWM+bwSEYsqTEXI7oDpmyRq+EoqlfVuqRvqmgi3en9EEkQ8dLUwRLW/ixiLiyprgHSR4ppGKCWLeHw5uivl6nFO8KTd7FMDEBsEHVLwSQD4c/EPrmeINRPhNFFA8w8/+X4c9DgWnhZMIdj0Y5YEj1WhXESr1+J7+RGteAl/k37w8DtnCTN3WP0pdHqUaycy6EafROAuJOJm9Ybp6duX/POA2xZWfXWOqcxs+zrOHXQ6Fe/coR1UqcJ7TWsM+GXFUpwRwOhD3L/i+YRkqUYhrHPZ7K1udASG/ZObPf7BvzN3U5HZ8XGI3uzkalKscLupTnqKc5OB1X2qnMTYX08oysmVwtA/D7FeGU2muCo/ThbskSgpfM90UmekhpvgfTRRneVDx+R1DX/97H806vwb/yYC1aTRfMJoGjOKBgC5pG5/wuibYBkBLnqCZP7JdJttYwStBg+kP5BHq++PlnWE7H/Ie8azgKgLwcZrOZDCYp7msREsYx2AK4+M4ncniKYZyFUEU0XzFSEMfZRlCNxpLlPOsZbZp+qjAYor6BYtofsdhnqc3Dfy5Z1jLNL+05jhO+Xlxf4i6iXYOe9DroeZL+asd9fdnkWHR/gLxG6WkGgG9mGW/m/201yTaPNFV08N+UdvETzmRoCm5TzQVG6R0B6VOS5GoqfOBeFBJlxSIly2f5mURJxBvSpSVBs76iySLustFTaVkNSW3n1ikqfNScD2UjGKsCUkK6sE3IdTSw4nR31xesTyyrQ9blHlL1v2kGQT7NOl3TgQXeU5poZ11q/IvwyFtNdmsfW7V+MpSJ9eXdYG3X8ZjzJH8bpIRYOMHdBJh4FkNTPQq71Peom5HfuBBKX1V0vRl8p52t+N5RrrVSyS4DnkxlgQPdR+lqEZ1aihXLWpJPi0JQXyM49noUTAdKxVhaaYrHK/lDouSJS1iqLe1kXkq2kbPc4O3+ZNtfnG+stj0ijPF6MvBFGq6jVP+MvX5g8OjdEoxnb4e3X42mvCzSZCNBpqzCYDxDubQ4iyndhh+N8HRkyoc9P+eSwWXtUu6lDett3wr2gj9jzmy6/iMai7DIT3nPvB9H5rwuAM373a8S3XXrdsjykIsz76LqgYLrmTeYz3naEg35QSE6rwYsiOoioPMYgPl6GzQ8HTg7wC05mFDjSUkIqhLL8t5e6zBljWZT9lHKZpazBc72UwGd0vRkvdxhDhiOGZpt1/Kz18OLjGDNZymFt0U3+hivGqpu/qIZSTRlCHKDNw21MODptqKxVFiSkitBhPKrZB9rM87Cm2VEtFEPTwoQ5QWCMQjEi1VFFX6fVvK+8JPm6C0skWUDJQequS866eqp04likaB8rVMm97ZQnlxQ4SW2X5OEYj24riSlyT1v1iiD1DuY5KUkxNz5nmlne2ihlS+r4GvbOH8DnFeofYNlC8jdkv0rFDlm+HsML19OejCDtPyNPKIVYK57qWdMllPUzwBi9Al7P6u0l369L/Dv6W87NmirDKn7KG5FKpsNw9oYwI+pPg4z2OQtDhYSXNTvE8dgmu3eku/U2itGLUsoL9Sto+m/jwpaFqKErM+OnSBuS6fMo9qBmo15rFUE6cysigKNFBcw0eYykxUwkPfF3afiQE5KRurpd/ZElojZXA8bbIn6K1x7pS34lN43JB7kNEW3MjKzGDauvLcrTwX4yCdq0Qp1h19qcY1Vk62CO/woN/Tk8lM9j+qYoxhpOUKwAscsxBY94PyJT/Dl5pSS6V1jdXKyzkOGtKyvJKtgJDF8eN8ZWohidV0MNDkGMLLNGqSj3kt7HVeDUl+y9IesJJA88Bv3aJC3cJRNPPhHhFbiHH0ZyLL6MgED/4me/xoY/4iH+FxXOvYfdqitDcwP0lZuNZvZ/xsGlDymu24psZZDiqatFAgz5tntKu4Y9Jv3QdUnQM9HVAAdzCTszfEYrmoTZ6s4CtLnObtLiH9Nis+hGFNFGwjNbiwIEdE0CsQK9jW0Q36Qq7VEGbI53OVpqQmRJHcs0s/Ra+UjjfEAN4WckSTCppQqyia32Omu/cZDkKT80J77WQryiqakNdFNHGL5S1sXVTj9h44oMmyZCHp43Ydsh+Uy7DcecPd0gv8pAi9L5ryeyjRwc3edyUMum9ZGLULdG/HkTznvWbKn6o5QjZR+l1Vs1Z+3YMndVRZ1ZmfVGNl/Z6IKxScAXVOEXs78LaS29YQHfxzAMWm26fENO/u9xTJxsGQODqsDNsHmKVIGy/xpKaOupiYwjApFc9q7Ul87rFU+l3PsNFTh+VK2uVxLF7IUHkFU5XzGp7iHl5nKxnE09twvt8C/wdyG+elNVMXVjKNJHx0NswNoXoTv62oJwbRkgS2cI369NZ8AgFOsES5i2n0Zil7KEYz+lueceMWbylqlb7cxWtsIo14OjFa2VrfqOjXHKAgDagNfMQjUro5zblChiksR2ZgeKXziRKxt532kOoLlmeXBsN8/qLo5Grx16B1RhmOMWlNa8+f1GH+pih66zMHSNMM2CFOm8yBL6J6I7cIl5dB7DZQYjVRXrpLLvZO9vRGWhjNOYH7M2728scwn4ITjOdbE620ifIHi3ijNvCFFRzea4R7+OtFWrAjSJmBfvkpG4eVOU2H98Nyyf/F9vzPVC11ms2phFfC9N+7js5Bj4MaY3tcuAV8ivVObmO2hiaH1ykRtIXTNLEJlvYLrUy5C3lYUeSpmKSEwZalC6O+Ws6TeV5BS9MJVQCCwYrqUo4E/AJPa11XtzNM0sWVlnREMjfqPG/F8yXa2MRyT6Ibk6W0T7knNWqxT018Qd8b4Q0RFFk8ZvpgASRziVRSSeWiVndsRAYD6ajZevmZ4TTU2sV/xl1MNPnNXOBDGhs+iakBXi6ZnB5SuOLPyzTobjbQkOHKjtcVltGI2WRygVRSSeOCYeZ5m7pM5ZBESeI1mvI1GaSTSirnOSSpJU5y2d9ShkFpm2LD8wias8D0jdrHBOoZNrmyOMY5C16zSOMsqaSSTlqUAOjEAFstdORxifcNZ/3moBrx/lsuzCntu66DjwdpRkP/ouMoa1lnGUo6G9VpyX1UJgpI4Qc2aQ5yrUg1v06qMCcNgSdup7p/VinK0YBfy3XcSgvqUJwoTrLdb092D4W5AkQRw05NkMja3MOdxCA4wPf8BJSijj/acCwX2RYwFKxBBS6SbTG2WzmnOZ6qAZ5PaN3NWtKCJv4NmZOs55+aUnHcRRxZWl4LUR8fVwEf4j/qMdGXn6kt4QAAAABJRU5ErkJggg=="><span class="t">Grant Management System</span><span class="u">Wireframe for discussion</span></div>
+<div class="app">
+  <nav>
+    <div class="grp">Existing modules</div>
+    <div class="dim">Application (GAF)</div>
+    <div class="dim">Grant</div>
+    <div class="dim">Instalments</div>
+    <div class="dim">Reporting</div>
+    <div class="grp">Proposed module</div>
+    <a href="#list">Annual Action Plans</a>
+    <a href="#form">Plan form</a>
+    <a href="#actuals">Plan vs actuals</a>
+  </nav>
+  <main>
+    <section data-view="list">
+      <h1>Annual Action Plans</h1>
+      <p class="sub">One plan per entity per financial year, built by focus area. Click a row to open it.</p>
+      <div class="bar">
+        <select id="fyf"><option value="">All financial years</option><option>2026-27</option><option>2025-26</option></select>
+        <select id="enf"><option value="">All entities</option></select>
+        <select id="stf"><option value="">All statuses</option><option>Draft</option><option>Submitted</option><option>Approved</option></select>
+        <button class="btn pri sp" id="newplan">+ New Annual Action Plan</button>
+      </div>
+      <div class="tw"><table><thead><tr><th>Financial year</th><th>Entity</th><th>Status</th><th class="n">Total planned</th><th class="n">Linked Applications / Grants</th><th class="n">Committed</th><th class="n">Utilised to date</th></tr></thead><tbody id="lrows"></tbody></table></div>
+    </section>
+
+    <section data-view="form">
+      <h1>Annual Action Plan <span id="ftitle"></span></h1>
+      <p class="sub">Financial year 2026-27. Planned amounts are typed in; committed and utilised are read from linked Grants.</p>
+      <div class="bar">
+        <label>Entity <select id="fent"></select></label>
+        <span id="fstat"></span>
+        <button class="btn sp" id="bsave">Save</button>
+        <button class="btn pri" id="bact"></button>
+      </div>
+      <div class="cards" id="fcards"></div>
+      <div class="two">
+        <div>
+          <div class="hint">Committed is the approved Budget by head across the Grants linked in that row. Utilised is booked utilisation on the same Grants. Balance = Committed minus Utilised.</div>
+          <div class="tw"><table><thead><tr><th>Focus area</th><th class="n">Planned (INR)</th><th>Sites</th><th>Linked Applications (GAF) / Grants</th><th class="n">Committed</th><th class="n">Utilised</th><th class="n">Balance</th></tr></thead><tbody id="frows"></tbody></table></div>
+          <p class="sub" style="margin-top:8px">+ Add focus area row (focus areas are a fixed list; Sites come from the Site list).</p>
+        </div>
+        <div class="panel"><h3>Approval trail</h3><div id="trail"></div></div>
+      </div>
+    </section>
+
+    <section data-view="actuals">
+      <h1>Plan vs actuals</h1>
+      <p class="sub">Financial year 2026-27. Planned against committed and utilised.</p>
+      <div class="legend"><span><i style="background:var(--accent-soft)"></i>Planned</span><span><i style="background:var(--acqua)"></i>Committed</span><span><i style="background:var(--accent)"></i>Utilised</span></div>
+      <div class="bar"><label>Entity <select id="aent"><option value="">All entities</option></select></label><label>Status <select id="ast"><option>Approved and Submitted</option><option>All</option></select></label></div>
+      <h3>By focus area</h3>
+      <div class="tw"><table><thead><tr><th>Focus area</th><th class="n">Planned</th><th class="n">Committed</th><th class="n">Utilised</th><th class="n">Utilised of planned</th><th>Planned / Committed / Utilised</th></tr></thead><tbody id="arf"></tbody></table></div>
+      <h3 style="margin-top:20px">By entity</h3>
+      <div class="tw"><table><thead><tr><th>Entity</th><th class="n">Planned</th><th class="n">Committed</th><th class="n">Utilised</th><th class="n">Utilised of planned</th><th>Planned / Committed / Utilised</th></tr></thead><tbody id="are"></tbody></table></div>
+    </section>
+  </main>
+</div>
+<div class="wm">Illustrative data</div>
+<div class="foot">&copy; 2026 Cipla Foundation &middot; A product by Dhwani RIS</div>
+<script>
+(function(){
+/* Entity names: edit this one line to swap placeholders. */
+var ENT=["Cipla Limited","Cipla Health Limited","Jay Precision Pharmaceuticals Private Limited","Meditab Specialities Limited","Medispray Laboratories Private Limited","Goldencross Pharma Limited","Sitec Labs Limited"];
+var AREAS=["Health","Environmental Sustainability","Education","Skilling","Disaster Response"];
+/* per entity, per area: [planned L, committed L, utilised L, sites, GAFs] ; L = lakh */
+var D={};
+D[ENT[0]]={st:"Submitted",rows:[[450,380,210,["Baddi","Indore","Patalganga","Satara"],["GAF-0412","GAF-0419"]],[180,150,60,["Kurkumbh","Verna"],["GAF-0431"]],[220,190,95,["Bommasandra","Rangpo"],["GAF-0440","GAF-0447"]],[160,120,40,["Baddi","Medispray"],["GAF-0452"]],[90,50,50,["NA"],["GAF-0460"]]],trail:[1,0,0]};
+D[ENT[1]]={st:"Approved",rows:[[300,260,140,["Rorathang","Pakyong"],["GAF-0415","GAF-0421"]],[120,80,30,["Virgonagar"],["GAF-0433"]],[150,150,70,["Pakyong"],["GAF-0442"]],[100,60,10,["Virgonagar"],["GAF-0455"]],[60,0,0,["NA"],[]]],trail:[1,1,1]};
+D[ENT[2]]={st:"Draft",rows:[[200,120,45,["Medispray","Verna"],["GAF-0418"]],[90,40,10,["Verna"],["GAF-0436"]],[130,90,35,["Kurkumbh"],["GAF-0444"]],[70,0,0,["Medispray"],[]],[40,20,20,["NA"],["GAF-0462"]]],trail:[0,0,0]};
+D[ENT[3]]={st:"Approved",rows:[[250,210,100,["Satara","Kurkumbh"],["GAF-0420","GAF-0426"]],[80,60,22,["Satara"],["GAF-0438"]],[110,80,38,["Patalganga"],["GAF-0446"]],[120,90,30,["Indore"],["GAF-0457"]],[50,30,30,["NA"],["GAF-0463"]]],trail:[1,1,1]};
+D[ENT[4]]={st:"Approved",rows:[[140,120,55,["Medispray","Verna"],["GAF-0466"]],[60,40,15,["Verna"],["GAF-0468"]],[80,60,25,["Medispray"],["GAF-0471"]],[50,30,10,["Verna"],["GAF-0473"]],[30,0,0,["NA"],[]]],trail:[1,1,1]};
+D[ENT[5]]={st:"Submitted",rows:[[120,90,40,["Indore"],["GAF-0475"]],[50,30,10,["Indore"],["GAF-0477"]],[70,50,20,["Baddi"],["GAF-0479"]],[40,20,5,["Baddi"],[]],[20,10,10,["NA"],["GAF-0481"]]],trail:[1,0,0]};
+D[ENT[6]]={st:"Draft",rows:[[90,40,15,["Bommasandra"],["GAF-0483"]],[40,0,0,["Virgonagar"],[]],[60,30,10,["Bommasandra"],["GAF-0485"]],[30,0,0,["Virgonagar"],[]],[20,0,0,["NA"],[]]],trail:[0,0,0]};
+var PRIOR=[["2025-26",0,"Approved",1180,9,1030,985],["2025-26",1,"Approved",610,5,560,540],["2025-26",2,"Approved",420,4,380,352],["2025-26",3,"Approved",590,6,540,498]];
+var ROLES=[["Programme Manager","prepares"],["Finance Manager","reviews"],["CEO","approves"]];
+var $=function(i){return document.getElementById(i)};
+function inr(l){var r=l*100000;if(r>=1e7){return "₹ "+(r/1e7).toFixed(2)+" Cr"}return "₹ "+l.toFixed(0)+" L"}
+function inrFull(l){var x=String(Math.round(l*100000)),a=x.slice(-3),b=x.slice(0,-3);if(b)a=b.replace(/\B(?=(\d{2})+(?!\d))/g,",")+","+a;return a}
+function tot(e){var t=[0,0,0,0];D[ENT[e]].rows.forEach(function(r){t[0]+=r[0];t[1]+=r[1];t[2]+=r[2];t[3]+=r[4].length});return t}
+var cur=0,lines=[];
+ENT.forEach(function(n,i){["enf","aent","fent"].forEach(function(s){var o=document.createElement("option");o.value=i;o.textContent=n;$(s).appendChild(o)})});
+function esc(s){return s}
+function stat(i){return D[ENT[i]].st}
+function renderList(){
+  var fy=$("fyf").value,en=$("enf").value,st=$("stf").value,h="";
+  var rows=[];
+  ENT.forEach(function(n,i){var t=tot(i);rows.push(["2026-27",i,stat(i),t[0],t[3],t[1],t[2]])});
+  PRIOR.forEach(function(p){rows.push(p)});
+  rows.forEach(function(r){
+    if(fy&&r[0]!==fy)return;if(en!==""&&String(r[1])!==en)return;if(st&&r[2]!==st)return;
+    h+='<tr class="click" data-e="'+r[1]+'" data-fy="'+r[0]+'"><td>'+r[0]+'</td><td>'+ENT[r[1]]+'</td><td><span class="pill '+r[2]+'">'+r[2]+'</span></td><td class="n">'+inr(r[3])+'</td><td class="n">'+r[4]+'</td><td class="n">'+inr(r[5])+'</td><td class="n">'+inr(r[6])+'</td></tr>';
+  });
+  $("lrows").innerHTML=h||'<tr><td colspan="7">No plans match the filters.</td></tr>';
+  [].forEach.call($("lrows").querySelectorAll("tr.click"),function(tr){tr.onclick=function(){if(tr.dataset.fy!=="2026-27"){alert("Wireframe shows the FY 2026-27 form only.");return}cur=+tr.dataset.e;location.hash="#form"}});
+}
+function renderForm(){
+  var d=D[ENT[cur]],s=d.st,t=tot(cur),ed=(s==="Draft");
+  $("fent").value=cur;
+  $("ftitle").textContent="2026-27 | "+ENT[cur];
+  $("fstat").innerHTML='<span class="pill '+s+'">'+s+'</span>';
+  $("fcards").innerHTML=[["Total planned",inr(t[0])],["Committed",inr(t[1])],["Utilised",inr(t[2])],["Balance",inr(t[1]-t[2])]].map(function(c){return '<div class="card"><p class="k">'+c[0]+'</p><p class="v">'+c[1]+'</p></div>'}).join("");
+  var h="";
+  d.rows.forEach(function(r,i){
+    h+='<tr><td>'+AREAS[i]+'</td><td class="n"><input class="amt" data-i="'+i+'" value="'+inrFull(r[0])+'"'+(ed?"":" disabled")+'></td><td>'+r[3].map(function(x){return '<span class="chip">'+x+'</span>'}).join("")+(ed?' <span class="chip">+ Site</span>':"")+'</td><td>'+(r[4].length?r[4].map(function(x){return '<span class="gaf">'+x+'</span>'}).join(""):'<span style="color:var(--ink-3)">None linked</span>')+(ed?' <span class="gaf">+ Link</span>':"")+'</td><td class="n">'+inr(r[1])+'</td><td class="n">'+inr(r[2])+'</td><td class="n">'+inr(r[1]-r[2])+'</td></tr>';
+  });
+  h+='<tr class="tot"><td>Total</td><td class="n" id="ttot">'+inrFull(t[0])+'</td><td></td><td>'+t[3]+' linked</td><td class="n">'+inr(t[1])+'</td><td class="n">'+inr(t[2])+'</td><td class="n">'+inr(t[1]-t[2])+'</td></tr>';
+  $("frows").innerHTML=h;
+  [].forEach.call($("frows").querySelectorAll("input.amt"),function(inp){inp.oninput=function(){var v=parseInt(inp.value.replace(/[^0-9]/g,"")||"0",10)/100000;d.rows[+inp.dataset.i][0]=v;var tt=tot(cur);$("ttot").textContent=inrFull(tt[0]);$("fcards").firstChild.querySelector(".v").textContent=inr(tt[0])}});
+  var th="";
+  ROLES.forEach(function(r,i){var done=d.trail[i]===1,isCur=!done&&(i===0||d.trail[i-1]===1);
+    th+='<div class="step '+(done?"done":isCur?"cur":"")+'"><div class="dot">'+(done?"✓":"")+'</div><div><b>'+r[0]+'</b><small>'+(done?"Done, "+["03 Apr","09 Apr","14 Apr"][i]+" 2026":isCur?"Waiting: "+r[1]:"Not yet")+'</small></div></div>';});
+  $("trail").innerHTML=th;
+  var b=$("bact");b.disabled=false;
+  if(s==="Draft"){b.textContent="Submit for review"}else if(s==="Submitted"){b.textContent="Approve (CEO)";}else{b.textContent="Approved";b.disabled=true}
+  $("bsave").disabled=!ed;
+  b.onclick=function(){if(s==="Draft"){d.st="Submitted";d.trail=[1,0,0]}else if(s==="Submitted"){if(d.trail[1]===0){d.trail[1]=1}else{d.st="Approved";d.trail=[1,1,1]}}renderForm()};
+  if(s==="Submitted"){b.textContent=d.trail[1]===0?"Mark reviewed (Finance Manager)":"Approve (CEO)"}
+}
+function bar(p,c,u,m){return '<div class="bars"><div class="b p" style="width:'+(p/m*100)+'%"></div><div class="b c" style="width:'+(c/m*100)+'%"></div><div class="b u" style="width:'+(u/m*100)+'%"></div></div>'}
+function renderAct(){
+  var en=$("aent").value,all=$("ast").value==="All";
+  function inc(i){return (en===""||+en===i)&&(all||stat(i)!=="Draft")}
+  var fa=AREAS.map(function(){return [0,0,0]}),ea=[];
+  ENT.forEach(function(n,i){if(!inc(i))return;var e=[0,0,0];D[n].rows.forEach(function(r,k){fa[k][0]+=r[0];fa[k][1]+=r[1];fa[k][2]+=r[2];e[0]+=r[0];e[1]+=r[1];e[2]+=r[2]});ea.push([n,e])});
+  var m=0;fa.forEach(function(x){m=Math.max(m,x[0])});ea.forEach(function(x){m=Math.max(m,x[1][0])});m=m||1;
+  function row(n,x,mm){return '<tr><td>'+n+'</td><td class="n">'+inr(x[0])+'</td><td class="n">'+inr(x[1])+'</td><td class="n">'+inr(x[2])+'</td><td class="n">'+(x[0]?Math.round(x[2]/x[0]*100):0)+'%</td><td>'+bar(x[0],x[1],x[2],mm)+'</td></tr>'}
+  var h="",mf=0;fa.forEach(function(x){mf=Math.max(mf,x[0])});mf=mf||1;
+  fa.forEach(function(x,k){h+=row(AREAS[k],x,mf)});$("arf").innerHTML=h;
+  var me=0;ea.forEach(function(x){me=Math.max(me,x[1][0])});me=me||1;
+  h="";ea.forEach(function(x){h+=row(x[0],x[1],me)});$("are").innerHTML=h||'<tr><td colspan="6">No plans in this selection.</td></tr>';
+}
+$("fyf").onchange=$("enf").onchange=$("stf").onchange=renderList;
+$("aent").onchange=$("ast").onchange=renderAct;
+$("fent").onchange=function(){cur=+$("fent").value;renderForm()};
+$("newplan").onclick=function(){alert("Opens a blank plan: choose financial year and entity, then add focus area rows.")};
+var links=[].slice.call(document.querySelectorAll('nav a[href^="#"]')),views=[].slice.call(document.querySelectorAll('section[data-view]'));
+function show(){
+  var id=(location.hash||"#list").slice(1);
+  if(!views.some(function(v){return v.dataset.view===id}))id="list";
+  views.forEach(function(v){v.classList.toggle("active",v.dataset.view===id)});
+  links.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+id)});
+  if(id==="list")renderList();if(id==="form")renderForm();if(id==="actuals")renderAct();
+}
+window.addEventListener("hashchange",show);show();
+})();
+</script>
+</body>
+</html>
